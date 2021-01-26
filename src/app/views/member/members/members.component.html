@@ -1,0 +1,116 @@
+<div class="flex flex-wrap mt-4">
+
+    <!-- Member List  -->
+    <div class="w-full mb-12 px-4" style="min-height: 700px;">
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+            [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+            <div class="rounded-t mb-0 px-4 py-3 border-0">
+                <div class="flex flex-wrap items-center justify-between ">
+                    <div class="relative w-full px-4 max-w-full flex-grow flex-1 justify-between ">
+
+                        <div class="text-center flex justify-between">
+                            <h6 class="text-gray-800 text-xl font-bold">
+                                <i class="fas fa-user-astronaut"></i>
+                                Member
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block w-full overflow-x-auto">
+                <!-- Projects table -->
+                <table class="items-center w-full bg-transparent border-collapse">
+                    <thead>
+                        <tr>
+                            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+                                [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                                Title
+                            </th>
+
+                            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+                                [ngClass]="
+                color === 'light'
+                  ? 'bg-gray-100 text-gray-600 border-gray-200'
+                  : 'bg-red-800 text-red-300 border-red-700'
+              ">
+                                Email
+                            </th>
+
+                            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-no-wrap font-semibold text-left"
+                                [ngClass]="
+              color === 'light'
+                ? 'bg-gray-100 text-gray-600 border-gray-200'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+                                Read
+                            </th>
+
+                           
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of starArr">
+
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                                <span class=" font-bold" [ngClass]="color === 'light' ? 'text-gray-700' : 'text-white'">
+                                    {{ item.displayName }}
+                                </span>
+                            </td>
+
+
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                                {{ item.email }}
+                            </td>
+                            <td
+                                class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-right">
+
+                                <a href="{{ 'https://starsed-31.web.app/member/' + item.uid }}" target="_blank"
+                                    class="bg-white-600 text-default active:bg-white-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                                    >
+                                    <i class="fas fa-envelope-open-text"></i>
+                                </a>
+
+                            </td>
+                           
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <hr class="mt-6 border-b-1 border-gray-400" />
+
+                <div style="position: absolute; right: 10px; bottom: 10px;"
+                    class="bg-white-600 mt-2 text-default text-center active:bg-white-700 font-bold uppercase text-md mb-2 rounded outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                    Pg {{ starpgnum }}
+                </div>
+
+
+                <div class="flex justify-center mb-2 mt-2 px-10 bg-white">
+
+                    <div class="flex justify-between mb-2 mt-6 bg-white">
+                        <button *ngIf="starpgnum > 1"
+                            class="bg-white-600 text-default active:bg-white-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                            type="button" (click)="showMemberList()">
+                            <i class="fas fa-arrow-circle-left"></i>
+                        </button>
+
+                        <button
+                            class="bg-white-600 text-default active:bg-white-700 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                            type="button" (click)="showList()">
+                            <i class="fas fa-arrow-circle-right"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
